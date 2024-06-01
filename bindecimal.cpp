@@ -14,6 +14,7 @@ main(int argc, char **argv)
 
     if ( argc == 1 )
     {
+        std::fprintf(stderr, "%s", argv[0]);
         // std::cout << "BinDecimal printer" << std::endl
         //           << "Call program with argument" << std::endl;
 
@@ -49,9 +50,9 @@ main(int argc, char **argv)
 
     for ( std::string message : messages )
     {
-        std::string              block = "\u2588";
+        std::string              block  = "\u2588";
         std::string              blocks = "\u2588\u2588";
-        std::string              dot = "\u2022";
+        std::string              dot    = "\u2022";
         std::vector<int>         dec_vec;
         std::vector<std::string> bin_vec;
 
@@ -63,7 +64,7 @@ main(int argc, char **argv)
             bin_vec.push_back(binarify(num));
         }
 
-        int max = get_max(bin_vec);
+        unsigned int max = get_max(bin_vec);
 
         for ( std::string &bin : bin_vec )
         {
@@ -84,9 +85,9 @@ main(int argc, char **argv)
         }
         std::cout << std::endl;
 
-        for ( int j = 0; j < max; j++ )
+        for ( unsigned int j = 0; j < max; j++ )
         {
-            for ( int i = 0; i < message.size(); i++ )
+            for ( unsigned int i = 0; i < message.size(); i++ )
             {
                 // std::cout << message[i] << ": ";
 
@@ -97,9 +98,9 @@ main(int argc, char **argv)
         }
     }
 
-    std::string      block = "\u2588";
+    std::string      block  = "\u2588";
     std::string      blocks = "\u2588\u2588";
-    std::string      dot = "\u2022";
+    std::string      dot    = "\u2022";
     std::vector<int> dec_vec
         = { 224, 164, 185, 224, 164, 174, 224, 164, 168, 224, 165, 135,
             32,  224, 164, 135, 224, 164, 184, 32,  224, 164, 172, 224,
@@ -118,7 +119,7 @@ main(int argc, char **argv)
         bin_vec.push_back(binarify(n));
     }
 
-    int max = get_max(bin_vec);
+    unsigned int max = get_max(bin_vec);
 
     for ( std::string &bin : bin_vec )
     {
@@ -135,9 +136,9 @@ main(int argc, char **argv)
 
     std::cout << std::endl;
 
-    for ( int j = 0; j < max; j++ )
+    for ( unsigned int j = 0; j < max; j++ )
     {
-        for ( int i = 0; i < dec_vec.size(); i++ )
+        for ( unsigned int i = 0; i < dec_vec.size(); i++ )
         {
             // std::cout << message[i] << ": ";
 
@@ -178,7 +179,7 @@ get_max(std::vector<std::string> bin_vec)
 
     for ( std::string bin : bin_vec )
     {
-        if ( bin.size() > max )
+        if ( ( int ) bin.size() > max )
         {
             max = bin.size();
         }
